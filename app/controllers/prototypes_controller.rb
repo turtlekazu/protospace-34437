@@ -50,7 +50,7 @@ class PrototypesController < ApplicationController
   end
 
   def set_to_root
-    unless user_signed_in? && current_user.id == params[:id]
+    unless user_signed_in? && current_user.id == Prototype.find(params[:id]).user_id
       redirect_to action: :index
     end
   end
